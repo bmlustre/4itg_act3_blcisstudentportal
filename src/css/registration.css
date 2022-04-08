@@ -1,0 +1,46 @@
+#existing-user {
+    padding-top: 2%;
+}
+
+
+.reg-container {
+    background-color: white;
+    box-shadow: 0.2rem 0.2rem rgba(0, 0, 0, 0.398);
+    margin: 2.5% 0 0 24%;
+    padding: 3%;
+    text-align: center;
+
+    height: 650px;
+    width: 800px;
+}
+
+.row {
+    margin-bottom: 2%;
+}
+
+.signup-form {
+    text-align: center;
+}
+
+
+/** FORM TEXTBOX **/
+
+label {
+    text-align: left;
+}
+
+#giv-name, #mid-name, #last-name {
+    width: 13rem;
+}
+
+#student-no {
+    width: 43.5rem;
+}
+
+#college, #program {
+    width: 15rem;
+}
+
+#pass, #confirm-pass {
+    width: fit-content;
+}
