@@ -1,24 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../image/blcis-logo.png";
-import { ToastContainer, toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-const  handleFormSubmit = (e) => {
-    e.preventDefault();
-    e.target.reset();
-    toast.success("Successful Login", {autoClose: 1000,hideProgressBar: true,})
-}
 
 const Home = () => { 
     return (
       <>
-      <ToastContainer />
         <div className="home-container">
 
           <div className="header">
@@ -30,7 +19,7 @@ const Home = () => {
             <p> Sign in using your 10-digit student number. </p>
           </div>
 
-          <form className="login-form" onSubmit={ handleFormSubmit }>
+          <form className="login-form">
             <label className="student-num"> Student Number </label> <br />
             <input className="sn-input" type="text" placeholder="10-Digit Student Number" maxlength="10" required/>
 

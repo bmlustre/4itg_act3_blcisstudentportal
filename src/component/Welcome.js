@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Welcome = () => { 
     return (
       <>
-
         <div className="welc-container">
 
           <div className="header">
@@ -20,7 +19,6 @@ const Welcome = () => {
           <Link to="/"> <input type="submit" className="btn btn-danger" value="Logout" id="logout-btn" /> </Link>
         
         </div>
-
     </>
     );
 };
