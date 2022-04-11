@@ -90,14 +90,14 @@ const Registration = () => {
           </div>
 
           <div className="text-center">
-            <input type="submit" className="btn btn-primary" value="Sign Up" />
+            <input type="submit" className="btn btn-primary" id="submit-btn" value="Sign Up" />
            
-            <input type="reset" value="Cancel" className="m-3 btn btn-secondary" />              
+            <input type="reset" value="Cancel" className="m-3 btn btn-secondary" id="cancel-btn" />              
           </div>
 
         </form>
 
-        <p id="existing-user"> Existing user? Please log in <strong><Link to = "/">here</Link></strong>. </p>
+        <p id="existing-user"> Existing user? Please log in <strong><Link to = "/" id="link">here</Link></strong>. </p>
 
       </div>
     </>

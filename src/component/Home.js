@@ -41,10 +41,10 @@ const Home = () => {
 
             <br /><br />
 
-            <input type="submit" value="Log In" />
+            <input type="submit" className="btn btn-primary" value="Login" id="login-btn" />
           </form>
 
-          <p id="new-user"> New user? Please sign up <strong><Link to = "/Registration">here</Link></strong>. </p>
+          <p id="new-user"> New user? Please sign up <strong><Link to = "/Registration" id="link">here</Link></strong>. </p>
 
         </div>
       </>

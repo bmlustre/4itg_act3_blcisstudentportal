@@ -20,6 +20,14 @@ body {
     width: 600px;
 }
 
+#link {
+    color: #0b8000;
+}
+
+#link:hover {
+    color: #f90700;
+}
+
 .sn-input, .pw-input {
     width: 60%;
 }
@@ -30,4 +38,17 @@ body {
 
 #school-text {
     font-family:'Work Sans', sans-serif;
+}
+
+/** BUTTON **/
+
+#login-btn, #login-btn:active {
+    background-color: #0b8000;
+    color: white;
+}
+
+#login-btn:hover {
+    background-color: #faff00;
+    color: black;
+    font-weight: bolder;
 }
