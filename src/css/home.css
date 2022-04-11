@@ -1,8 +1,6 @@
 body {
     background-image: url("../image/bg.png");
     background-size: 100%;
-
-    overflow: hidden;
 }
 
 #blcis-logo {

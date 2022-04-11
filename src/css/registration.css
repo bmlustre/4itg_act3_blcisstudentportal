@@ -10,8 +10,9 @@
     padding: 3%;
     text-align: center;
 
-    height: 650px;
+    height: 620px;
     width: 800px;
+    
 }
 
 .row {
@@ -27,14 +28,7 @@
 
 label {
     text-align: left;
-}
-
-#giv-name, #mid-name, #last-name {
-    width: 13rem;
-}
-
-#student-no {
-    width: 43.5rem;
+    margin-bottom: 5px;
 }
 
 #college, #program {
