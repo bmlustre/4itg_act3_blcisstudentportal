@@ -91,8 +91,7 @@ const Registration = () => {
           </div>
 
           <div className="text-center">
-            <Link to="/Welcome"><input type="submit" className="btn btn-success" id="submit-btn" value="Sign Up"/></Link>
-           
+            <input type="submit" className="btn btn-success" id="submit-btn" value="Sign Up"/>
             <input type="reset" value="Cancel" className="m-3 btn btn-danger" id="cancel-btn" />              
           </div>
 
