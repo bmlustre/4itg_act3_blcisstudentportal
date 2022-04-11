@@ -40,16 +40,6 @@ label {
 
 /** BUTTONS **/
 
-#cancel-btn, #cancel-btn:active {
-    background-color: #f90700;
-    color: white;
-}
-
-#submit-btn, #submit-btn:active {
-    background-color: #0b8000;
-    color: white;
-}
-
 #submit-btn:hover, #cancel-btn:hover {
     background-color: #faff00;
     color: black;

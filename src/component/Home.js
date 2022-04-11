@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../image/blcis-logo.png";
 import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const  handleFormSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
-    toast.success("Successful LogIn", {autoClose: 1000,hideProgressBar: true,})
+    toast.success("Successful Login", {autoClose: 1000,hideProgressBar: true,})
 }
 
 const Home = () => { 
@@ -41,7 +42,7 @@ const Home = () => {
 
             <br /><br />
 
-            <input type="submit" className="btn btn-primary" value="Login" id="login-btn" />
+            <Link to="/Welcome"> <input type="submit" className="btn btn-primary" value="Login" id="login-btn" /> </Link>
           </form>
 
           <p id="new-user"> New user? Please sign up <strong><Link to = "/Registration" id="link">here</Link></strong>. </p>

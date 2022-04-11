@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../image/blcis-logo.png";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import '../css/registration.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -67,7 +68,7 @@ const Registration = () => {
             <div className="col-lg-4">
               <label id="yr-lvl"> Year Level </label><br/>
               <select required className="form-select">
-                <option disabled> Select One </option>
+                <option disabled selected> Select One </option>
                 <option> 1 </option>
                 <option> 2 </option>
                 <option> 3 </option>
@@ -90,9 +91,9 @@ const Registration = () => {
           </div>
 
           <div className="text-center">
-            <input type="submit" className="btn btn-primary" id="submit-btn" value="Sign Up" />
+            <Link to="/Welcome"><input type="submit" className="btn btn-success" id="submit-btn" value="Sign Up"/></Link>
            
-            <input type="reset" value="Cancel" className="m-3 btn btn-secondary" id="cancel-btn" />              
+            <input type="reset" value="Cancel" className="m-3 btn btn-danger" id="cancel-btn" />              
           </div>
 
         </form>

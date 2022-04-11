@@ -1,15 +1,14 @@
-body {
-    background-image: url("../image/bg.png");
-    background-size: 100%;
-}
-
 #blcis-logo {
     width: 8%;
     margin-bottom: 1%;
     margin-right: 2%;
 }
 
-.home-container {
+#welc-school-text {
+    font-family:'Work Sans', sans-serif;
+}
+
+.welc-container {
     background-color: white;
     box-shadow: 0.2rem 0.2rem rgba(0, 0, 0, 0.398);
     margin: 7% 30% 3%;
@@ -20,29 +19,12 @@ body {
     width: 600px;
 }
 
-#link {
-    color: #0b8000;
-}
-
-#link:hover {
-    color: #f90700;
-}
-
-.sn-input, .pw-input {
-    width: 60%;
-}
-
-#new-user {
-    padding-top: 2%;
-}
-
-#school-text {
-    font-family:'Work Sans', sans-serif;
+#welc-txt {
+    margin: 100px 0;
 }
 
 /** BUTTON **/
-
-#login-btn:hover {
+#logout-btn:hover {
     background-color: #faff00;
     color: black;
     font-weight: bolder;
