@@ -59,7 +59,7 @@ const validate = (values) => {
   if (!values.password) {
     errors.password = "Password is required";
   } else if (!passwordPattern.test(values.password)) {
-    errors.password = "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters";
+    errors.password = "Password should contain: at least one (1) uppercase, lowercase, special character and number; at least eight (8) characters";
   } 
 
   if (!values.cPassword) {
