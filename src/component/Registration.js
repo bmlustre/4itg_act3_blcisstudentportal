@@ -163,7 +163,7 @@ const validate = (values) => {
 
         </form>
 
-        <p id="existing-user"> Existing user? Please log in <strong><Link to = "/" id="link">here</Link></strong>. </p>
+        <p id="existing-user"> Existing user? Please log in <strong><Link to = "/"   state={{ formValues }}  id="link">here</Link></strong>. </p>
 
       </div>
     </>

@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 import logo from "../image/blcis-logo.png";
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Home = () => { 
-
+  const location = useLocation();
   const initialValues = { studentID: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -19,12 +20,17 @@ const Home = () => {
 
   const handleSubmit = (e) => {
      e.preventDefault();
-    const errors = validate(formValues);
-    setFormErrors(errors);
-    if(Object.keys(errors).length === 0) {
-      e.target.reset();
-      window.location.href = "http://localhost:3000/Welcome";
-    }
+     if(!location.state) {
+      toast.warning("No Student Registered", {autoClose: 1000,hideProgressBar: true,})
+     } else {
+      const errors = validate(formValues);
+      setFormErrors(errors);
+      if(Object.keys(errors).length === 0) {
+        e.target.reset();
+        window.location.href = "http://localhost:3000/Welcome";
+      }       
+     }
+
 
   };
 
@@ -33,13 +39,13 @@ const Home = () => {
     const errors = {};
     if (!values.studentID) {
       errors.studentID = "Student ID is required";
-    } else if ((values.studentID.length !== 10) || isNaN(values.studentID)) {
-      errors.studentID = "Student ID must be a 10 digit number";
+    } else if ((values.studentID !== location.state.formValues.studentID)) {
+      errors.studentID = "Student ID does not exist";
     } 
 
     if (!values.password) {
       errors.password = "Password is required";
-    } else if (values.password !== "password") {
+    } else if (values.password !== location.state.formValues.password) {
       errors.password = "Invalid password";
     } 
 
@@ -50,6 +56,7 @@ const Home = () => {
   };
     return (
       <>
+        <ToastContainer />
         <div className="home-container">
 
           <div className="header">
