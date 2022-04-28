@@ -13,6 +13,7 @@ const Registration = () => {
 const initialValues = { gName : "", lName:"", studentID: "", college: "", program: "", yearLevel: "", password: "" , cPassword: "" };
 const [formValues, setFormValues] = useState(initialValues);
 const [formErrors, setFormErrors] = useState({});
+const [style, setStyle] = useState("reg-container");
 
 const handleChange = (e) => {
   const { name, value } = e.target;
@@ -34,48 +35,58 @@ const validate = (values) => {
   const errors = {};
   const passwordPattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/;
   if(!values.gName) {
-    errors.gName = "Given name is required";
+    setStyle("reg-container-clicked");
+    errors.gName = "*Given name is required";
   }
 
   if(!values.lName) {
-    errors.lName = "Last name is required";
+    setStyle("reg-container-clicked");
+    errors.lName = "*Last name is required";
   }
   if(!values.college) {
-    errors.college = "College is required";
+    setStyle("reg-container-clicked");
+    errors.college = "*College is required";
   }
   if(!values.program) {
-    errors.program = "Program is required";
+    setStyle("reg-container-clicked");
+    errors.program = "*Program is required";
   }
   if(!values.yearLevel) {
-    errors.yearLevel = "Year Level is required";
+    setStyle("reg-container-clicked");
+    errors.yearLevel = "*Year Level is required";
   }
 
   if (!values.studentID) {
-    errors.studentID = "Student ID is required";
+    setStyle("reg-container-clicked");
+    errors.studentID = "*Student ID is required";
   } else if ((values.studentID.length !== 10) || isNaN(values.studentID)) {
-    errors.studentID = "Student ID must be a 10 digit number";
+    setStyle("reg-container-clicked");
+    errors.studentID = "*Student ID must be a 10 digit number";
   } 
   
   if (!values.password) {
-    errors.password = "Password is required";
+    setStyle("reg-container-clicked");
+    errors.password = "*Password is required";
   } else if (!passwordPattern.test(values.password)) {
-    errors.password = "Password should contain: at least one (1) uppercase, lowercase, special character and number; at least eight (8) characters";
+    setStyle("reg-container-clicked");
+    errors.password = "*Password should contain: at least one (1) uppercase, lowercase, special character and number; at least eight (8) characters";
   } 
 
   if (!values.cPassword) {
-    errors.cPassword = "Confirm Password is required";
+    setStyle("reg-container-clicked");
+    errors.cPassword = "*Confirm Password is required";
   } else if (values.cPassword !== values.password ) {
-    errors.password = "Password does not match";
+    setStyle("reg-container-clicked");
+    errors.password = "*Password does not match";
   } 
 
   return errors;
 };
 
-  
     return (
       <>
         <ToastContainer />
-         <div className="reg-container">
+         <div className={style}>
         
         <div className="header">
           <h3 id="school-text"> <img src={logo} alt="logo-blcis" id="blcis-logo" />BLC International School </h3>
@@ -92,7 +103,7 @@ const validate = (values) => {
             <div className="col-lg-4">
               <label> Given Name </label><br/>
               <input id="giv-name" className="form-control" type="text" placeholder="Given Name"  name="gName"  value={formValues.gName}  onChange={handleChange} />
-              <p className="text-danger">{formErrors.gName}</p>
+              <p className="text-danger reg-error">{formErrors.gName}</p>
             </div>
 
             <div className="col-lg-4">
@@ -103,7 +114,7 @@ const validate = (values) => {
             <div className="col-lg-4">
               <label> Last Name </label><br/>
               <input id="last-name" type="text" className="form-control" placeholder="Last Name" name="lName"  value={formValues.lName}  onChange={handleChange}  />            
-              <p className="text-danger">{formErrors.lName}</p>
+              <p className="text-danger reg-error">{formErrors.lName}</p>
             </div>
           </div>
 
@@ -111,7 +122,7 @@ const validate = (values) => {
             <div className="col-lg-12">
               <label> Student Number </label><br/>
               <input id="student-no" className="form-control" type="text" placeholder="10-Digit Student Number" maxlength="10" name="studentID"  value={formValues.studentID}  onChange={handleChange} />
-              <p className="text-danger">{formErrors.studentID}</p>
+              <p className="text-danger reg-error">{formErrors.studentID}</p>
             </div>
           </div>
 
@@ -119,26 +130,25 @@ const validate = (values) => {
             <div className="col-lg-4">
               <label> College </label><br/>
               <input id="college" className="form-control" type="text" placeholder="College"  name="college"  value={formValues.college}  onChange={handleChange} />
-              <p className="text-danger">{formErrors.college}</p>
+              <p className="text-danger reg-error">{formErrors.college}</p>
             </div>
 
             <div className="col-lg-4">
               <label> Program Enrolled </label><br/>
               <input id="program" className="form-control" type="text" placeholder="Program Enrolled"  name="program"  value={formValues.program}  onChange={handleChange} />            
-              <p className="text-danger">{formErrors.program}</p>
+              <p className="text-danger reg-error">{formErrors.program}</p>
             </div>
 
             <div className="col-lg-4">
               <label id="yr-lvl"> Year Level </label><br/>
-              <select className="form-select"  name="yearLevel"  value={formValues.yearLevel}  onChange={handleChange}>
-                <option disabled selected> Select One </option>
+              <select className="form-select"  name="yearLevel" placeholder="Select One" value={formValues.yearLevel}  onChange={handleChange}>
                 <option> 1 </option>
                 <option> 2 </option>
                 <option> 3 </option>
                 <option> 4 </option>
                 <option> 5 </option>
               </select>
-              <p className="text-danger">{formErrors.yearLevel}</p>            
+              <p className="text-danger reg-error">{formErrors.yearLevel}</p>            
             </div>
           </div>
 
@@ -146,19 +156,19 @@ const validate = (values) => {
             <div className="col-lg-6">
               <label id="pass"> Password </label><br/>
               <input type="password" className="form-control" placeholder="Password"  name="password"  value={formValues.password}  onChange={handleChange}/>
-              <p className="text-danger">{formErrors.password}</p>            
+              <p className="text-danger reg-error">{formErrors.password}</p>            
             </div>
 
             <div className="col-lg-6">
               <label id="confirm-pass"> Confirm Password </label><br/>
               <input type="password" className="form-control" placeholder="Confirm Password"  name="cPassword"  value={formValues.cPassword}  onChange={handleChange}/>
-              <p className="text-danger">{formErrors.cPassword}</p>            
+              <p className="text-danger reg-error" >{formErrors.cPassword}</p>            
             </div>
           </div>
 
           <div className="text-center">
-            <input type="submit" className="btn btn-success" id="submit-btn" value="Sign Up"/>
-            <input type="reset" value="Cancel" className="m-3 btn btn-danger" id="cancel-btn" />              
+            <button type="submit" className="btn btn-success" id="submit-btn"> Sign Up </button>
+            <button type="reset" className="m-3 btn btn-danger" id="cancel-btn"> Cancel </button>       
           </div>
 
         </form>

@@ -28,6 +28,12 @@ body {
     color: #f90700;
 }
 
+.login-error {
+    font-size: 10px;
+    font-weight: bolder;
+    text-align: center;
+}
+
 .sn-input, .pw-input {
     width: 60%;
 }

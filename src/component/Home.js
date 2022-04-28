@@ -38,15 +38,15 @@ const Home = () => {
   const validate = (values) => {
     const errors = {};
     if (!values.studentID) {
-      errors.studentID = "Student ID is required";
+      errors.studentID = "*Student ID is required";
     } else if ((values.studentID !== location.state.formValues.studentID)) {
-      errors.studentID = "Student ID does not exist";
+      errors.studentID = "*Student ID does not exist";
     } 
 
     if (!values.password) {
-      errors.password = "Password is required";
+      errors.password = "*Password is required";
     } else if (values.password !== location.state.formValues.password) {
-      errors.password = "Invalid password";
+      errors.password = "*Invalid password";
     } 
 
     if(Object.keys(errors).length === 0) {
@@ -70,14 +70,16 @@ const Home = () => {
 
           <form className="login-form" onSubmit={handleSubmit} >
             <label className="student-num"> Student Number </label> <br />
-            <input className="sn-input" type="text" name="studentID" placeholder="10-Digit Student Number" value={formValues.studentID} onChange={handleChange} />
-            <p className="text-danger">{formErrors.studentID}</p>
+            <input className="sn-input" type="text" name="studentID" maxlength="10" placeholder="10-Digit Student Number" value={formValues.studentID} onChange={handleChange} />
+            <p className="text-danger login-error">{formErrors.studentID}</p>
 
             <label className="pass-txt"> Password </label><br />
             <input className="pw-input" type="password" placeholder="Password" name="password" value={formValues.password} onChange={handleChange}/>
-            <p className="text-danger"> {formErrors.password} </p>
+            <p className="text-danger login-error"> {formErrors.password} </p>
 
-            <input type="submit" className="btn btn-primary" value="Login" id="login-btn" />
+            <div className = "btn-container">
+              <input type="submit" className="btn btn-primary" value="Login" id="login-btn" />
+            </div>
           </form>
 
           <p id="new-user"> New user? Please sign up <strong><Link to = "/Registration" id="link">here</Link></strong>. </p>
